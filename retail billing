@@ -1,0 +1,23 @@
+
+products = [
+    ("Shirt", 500, 2, 5),
+    ("Shoes", 1000, 1, 18),
+    ("Book", 200, 2, 0)
+]
+
+total = 0
+
+for name, price, qty, tax in products:
+    amount = price * qty
+    gst = amount * tax / 100
+    total += amount + gst
+    print(name, "Amount:", amount, "Tax:", gst)
+
+if total >= 2000:
+    discount = min(total * 0.10, 300)
+else:
+    discount = 0
+
+print("Total Bill:", total)
+print("Discount:", discount)
+print("Final Bill:", total - discount)
