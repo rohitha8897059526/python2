@@ -1,0 +1,41 @@
+# Railway Fare and Reservation Calculator
+
+
+
+total = 0
+distance = int(input("Enter distance in km: "))
+passengers = int(input("Enter number of passengers: "))
+
+age = []
+for i in range(passengers):
+    a = int(input("Enter passenger age: "))
+    age.append(a)
+
+if distance <= 100:
+    fare = 100
+elif distance <= 300:
+    fare = 200
+else:
+    fare = 400
+for a in age:
+    if a < 5:
+        cost = 0
+    elif a >= 60:
+        cost = fare * 0.5
+    else:
+        cost = fare
+
+    cost = cost + 20
+    total = total + cost
+
+print("Total Reservation Fare:", total)
+
+cancel = input("Cancel ticket? (yes/no): ")
+
+if cancel == "yes":
+    penalty = total * 0.25
+    print("Cancellation Penalty:", penalty)
+    print("Refund Amount:", total - penalty)
+else:
+    print("Ticket Confirmed")
+    print("Total Fare:", total)
