@@ -1,0 +1,42 @@
+consultation = 500
+
+diagnostic = float(input("Enter diagnostic charges: "))
+treatment = float(input("Enter treatment charges: "))
+payment = float(input("Enter amount paid: "))
+
+if diagnostic < 0 or treatment < 0 or payment < 0:
+    print("Invalid input: Amount cannot be negative")
+
+else:
+    total = consultation + diagnostic + treatment
+
+    if total >= 5000:
+        concession = total * 0.10
+    else:
+        concession = 0
+
+    final_bill = total - concession
+
+    if payment > final_bill:
+        print("Invalid payment amount")
+
+    else:
+        balance = final_bill - payment
+
+        if payment == final_bill:
+            status = "Fully Paid"
+        elif payment > 0:
+            status = "Partially Paid"
+        else:
+            status = "Unpaid"
+
+        print("\n--- Hospital Bill ---")
+        print("Consultation: Rs.", consultation)
+        print("Diagnostic: Rs.", diagnostic)
+        print("Treatment: Rs.", treatment)
+        print("Total Bill: Rs.", total)
+        print("Concession: Rs.", concession)
+        print("Final Bill: Rs.", final_bill)
+        print("Amount Paid: Rs.", payment)
+        print("Balance Due: Rs.", balance)
+        print("Patient Classification:", status)
