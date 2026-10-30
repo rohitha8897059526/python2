@@ -1,0 +1,24 @@
+n = int(input("Enter number of students: "))
+students = []
+
+for i in range(n):
+    name = input("Enter name: ")
+    m1 = int(input("Enter subject 1 marks: "))
+    m2 = int(input("Enter subject 2 marks: "))
+    m3 = int(input("Enter subject 3 marks: "))
+    att = int(input("Enter attendance: "))
+    income = int(input("Enter family income: "))
+
+    avg = (m1 + m2 + m3) / 3
+
+    if avg >= 75 and min(m1, m2, m3) >= 40 and att >= 75 and income <= 200000:
+        students.append([name, avg, att, income])
+
+students.sort(key=lambda x: (-x[1], -x[2], x[3]))
+
+print("\nEligible Students:")
+for i, s in enumerate(students, 1):
+    print(i, s[0], round(s[1], 2), s[2], s[3])
+
+if len(students) == 0:
+    print("No eligible students")
