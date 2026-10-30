@@ -1,0 +1,27 @@
+
+
+
+venue = 5000
+equipment = 2000
+catering = 8000
+transport = 1000
+certificates = 1000
+
+sponsorship = 5000
+fee = 200
+students = 60
+
+total = venue + equipment + catering + transport + certificates
+
+shortfall = max(0, total - sponsorship)
+break_even = (total - sponsorship + fee - 1) // fee
+
+print("Total Cost:", total)
+print("Sponsorship:", sponsorship)
+print("Shortfall:", shortfall)
+print("Break-even Registrations:", break_even)
+
+if students * fee + sponsorship >= total:
+    print("Event is Successful")
+else:
+    print("More Funds Required")
